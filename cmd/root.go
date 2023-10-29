@@ -3,7 +3,6 @@ package cmd
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	baseParser "github.com/vumanskyi/data-object-convert/pkg/parser"
 	"github.com/vumanskyi/data-object-convert/version"
 	"os"
 )
@@ -19,10 +18,12 @@ var (
 	}
 )
 
-var parser = baseParser.NewStructParser()
-
-//var exporter = export.NewDataExport()
-//var convert = baseConvert.NewObjectGenerator(parser)
+func init() {
+	rootCmd.PersistentFlags().StringP("class", "c", "", "Class name.")
+	rootCmd.PersistentFlags().StringP("type", "t", "dto", "Convert to object type.")
+	rootCmd.PersistentFlags().StringP("export", "e", "stdout", "Export result.")
+	rootCmd.MarkPersistentFlagRequired("class")
+}
 
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {

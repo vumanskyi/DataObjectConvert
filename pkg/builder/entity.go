@@ -3,7 +3,7 @@ package builder
 type EntityBuilder struct {
 }
 
-func (e *EntityBuilder) Build(data map[string]interface{}) string {
+func (e *EntityBuilder) Build(className string, data map[string]interface{}) string {
 	//var builder strings.Builder
 	//builder.WriteString(fmt.Sprintf("class %s\n", "TestDTO"))
 	//builder.WriteString("{\n")

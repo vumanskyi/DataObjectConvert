@@ -1,6 +1,7 @@
 package convert
 
 import (
+	"fmt"
 	"github.com/vumanskyi/data-object-convert/pkg/builder"
 	"github.com/vumanskyi/data-object-convert/pkg/export"
 )
@@ -22,6 +23,8 @@ func NewObjectGenerator(e export.Exporter, b builder.Builder) *ObjectGenerator {
 	}
 }
 
-func (og *ObjectGenerator) Generate(data map[string]interface{}) {
-	og.exporter.Export(og.builder.Build(data))
+func (og *ObjectGenerator) Generate(className string, data map[string]interface{}) {
+	fmt.Println("")
+	og.exporter.Export(og.builder.Build(className, data))
+	fmt.Println("")
 }

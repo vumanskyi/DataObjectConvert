@@ -3,12 +3,13 @@ package builder
 import (
 	"errors"
 	_const "github.com/vumanskyi/data-object-convert/pkg/const"
+	"unicode"
 )
 
 var ImplementationNotFound = errors.New("implementation not found")
 
 type Builder interface {
-	Build(data map[string]interface{}) string
+	Build(className string, data map[string]interface{}) string
 }
 
 type BuilderFactory interface {
@@ -53,6 +54,14 @@ func getType(value interface{}) string {
 	case []interface{}:
 		return "array"
 	default:
-		return "mixed"
+		return "object"
 	}
+}
+
+func ucFirst(str string) string {
+	for _, v := range str {
+		u := string(unicode.ToUpper(v))
+		return u + str[len(u):]
+	}
+	return ""
 }
