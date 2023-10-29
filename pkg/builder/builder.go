@@ -27,8 +27,6 @@ func (obf *ObjectBuilderFactory) Create(t string) (Builder, error) {
 	switch t {
 	case _const.ENTITY_FORMAT:
 		return &EntityBuilder{}, nil
-	case _const.VALUE_OBJECT_FORMAT:
-		return &ValueObject{}, nil
 	case _const.DTO_FORMAT:
 		return &DataTransferObject{}, nil
 	}

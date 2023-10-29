@@ -41,8 +41,6 @@ func (d *DataTransferObject) Build(className string, data map[string]interface{}
 	}
 	builder.WriteString("    }\n\n")
 
-	//@todo - add getters
-
 	for key, value := range data {
 		dataType := getType(value)
 		builder.WriteString("    public function get" + ucFirst(key) + "(): " + dataType + "\n")

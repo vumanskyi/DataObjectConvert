@@ -4,7 +4,7 @@ The CLI tool to turn JSON, YAML or XML objects into Data Object (PHP)
 
 ## Usage
 
-For json run 
+Convert **json** structure to php data object 
 ```
 data-object-convert json  -c PersonDto "{\"name\": \"Vlad\", \"age\": 30, \"cost\": 30.00}"
 ```
@@ -50,4 +50,14 @@ class PerstonDto
 
 }
 
+```
+
+Convert **yaml** structure to php data object
+
+```
+data-object-convert yaml -c PersonDto "
+name: Vlad
+age: 30
+cost: 30
+"
 ```

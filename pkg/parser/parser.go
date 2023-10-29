@@ -2,9 +2,9 @@ package parser
 
 import (
 	"encoding/json"
-	"encoding/xml"
 	"errors"
 	_const "github.com/vumanskyi/data-object-convert/pkg/const"
+	"gopkg.in/yaml.v2"
 )
 
 var parserTypeNotFound = errors.New("parser type not found")
@@ -24,8 +24,6 @@ func (p *StructParser) Parse(t, source string) (map[string]interface{}, error) {
 	switch t {
 	case _const.JSON_FORMAT:
 		return jsonParser(source)
-	case _const.XML_FORMAT:
-		return xmlParser(source)
 	case _const.YAML_FORMAT:
 		return yamlParser(source)
 	}
@@ -39,12 +37,8 @@ func jsonParser(source string) (map[string]interface{}, error) {
 	return data, err
 }
 
-func xmlParser(source string) (map[string]interface{}, error) {
-	var data map[string]interface{}
-	err := xml.Unmarshal([]byte(source), &data)
-	return data, err
-}
-
 func yamlParser(source string) (map[string]interface{}, error) {
-	panic("In progress")
+	var data map[string]interface{}
+	err := yaml.Unmarshal([]byte(source), &data)
+	return data, err
 }
