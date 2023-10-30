@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/vumanskyi/data-object-convert/cmd"
 	"github.com/vumanskyi/data-object-convert/version"
 	"log"
 )
@@ -10,4 +11,6 @@ func main() {
 		"Service is starting, version is %s, commit is %s, time is %s...",
 		version.Release, version.Commit, version.BuildTime,
 	)
+
+	cmd.Execute()
 }

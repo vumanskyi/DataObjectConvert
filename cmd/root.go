@@ -7,13 +7,22 @@ import (
 	"os"
 )
 
-var className string
+var (
+	className string
 
-var rootCmd = cobra.Command{
-	Use:     "data-object-converter",
-	Short:   "Convert: Quickly turn JSON | YAML | XML into Data Objects",
-	Long:    "Convert: Quickly turn JSON | YAML | XML into Data Objects",
-	Version: version.Release,
+	rootCmd = cobra.Command{
+		Use:     "data-object-converter",
+		Short:   "Convert: Quickly turn JSON | YAML | XML into Data Objects",
+		Long:    "Convert: Quickly turn JSON | YAML | XML into Data Objects",
+		Version: version.Release,
+	}
+)
+
+func init() {
+	rootCmd.PersistentFlags().StringP("class", "c", "", "Class name.")
+	rootCmd.PersistentFlags().StringP("type", "t", "dto", "Convert to object type.")
+	rootCmd.PersistentFlags().StringP("export", "e", "stdout", "Export result.")
+	rootCmd.MarkPersistentFlagRequired("class")
 }
 
 func Execute() {
