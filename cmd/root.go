@@ -12,8 +12,8 @@ var (
 
 	rootCmd = cobra.Command{
 		Use:     "data-object-converter",
-		Short:   "Convert: Quickly turn JSON | YAML | XML into Data Objects",
-		Long:    "Convert: Quickly turn JSON | YAML | XML into Data Objects",
+		Short:   "Convert: Quickly turn JSON | YAML into Data Objects",
+		Long:    "Convert: Quickly turn JSON | YAML into Data Objects",
 		Version: version.Release,
 	}
 )
