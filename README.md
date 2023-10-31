@@ -57,7 +57,9 @@ class PerstonDto
 Convert **yaml** structure to php data object
 
 ```
+
 data-object-convert yaml -t entity -c PersonEntity "
+
 name: John
 age: 30
 cost: 30.20
